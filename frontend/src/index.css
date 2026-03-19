@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fallback colors in case Tailwind custom colors fail */
+:root {
+  --rwanda-blue: #002B7F;
+  --rwanda-yellow: #FFD100;
+  --rwanda-green: #007A33;
+  --rwanda-light: #F5F5F5;
+  --rwanda-dark: #212121;
+}
+
+html, body, #root {
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--rwanda-light);
+  color: var(--rwanda-dark);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e5e7eb;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--rwanda-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1e40af;
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+/* Button styles */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--rwanda-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1e3a8a;
+}
+
+.btn-secondary {
+  background-color: var(--rwanda-yellow);
+  color: var(--rwanda-dark);
+}
+
+.btn-secondary:hover {
+  background-color: #eab308;
+}
+
+.btn-success {
+  background-color: var(--rwanda-green);
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #065f46;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+/* Input styles */
+.input, .select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input:focus, .select:focus {
+  outline: none;
+  ring: 2px solid var(--rwanda-blue);
+  border-color: transparent;
+}
+
+.select {
+  background-color: white;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  text-align: left;
+}
+
+.table th {
+  padding: 0.75rem 1rem;
+  background-color: var(--rwanda-blue);
+  color: white;
+  font-weight: 600;
+}
+
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Badge styles */
+.badge {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+
+.badge-success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-info {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .card {
+    @apply p-4;
+  }
+  
+  .table th,
+  .table td {
+    @apply px-2 py-2 text-sm;
+  }
+  
+  .btn {
+    @apply px-3 py-1.5 text-sm;
+  }
+  
+  .input,
+  .select {
+    @apply py-1.5 text-sm;
+  }
+}
+
+/* Table responsive wrapper - enables horizontal scroll */
+.table-container {
+  @apply overflow-x-auto;
+}
+
+.table-container table {
+  @apply min-w-full;
+}
+
+/* Responsive spacing utilities */
+@media (max-width: 640px) {
+  .p-6 {
+    @apply p-4;
+  }
+  
+  .text-2xl {
+    @apply text-xl;
+  }
+  
+  .text-xl {
+    @apply text-lg;
+  }
+  
+  .gap-6 {
+    @apply gap-4;
+  }
+  
+  .gap-4 {
+    @apply gap-3;
+  }
+}
+
+/* Mobile-friendly form elements */
+@media (max-width: 480px) {
+  .btn {
+    @apply px-2 py-1 text-xs;
+  }
+  
+  .input,
+  .select {
+    @apply px-2 py-2 text-sm;
+  }
+  
+  .card {
+    @apply p-3 rounded;
+  }
+}
+
+/* Grid responsive adjustments */
+@media (max-width: 640px) {
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hide elements on mobile */
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+/* Hide elements on desktop */
+@media (min-width: 641px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}

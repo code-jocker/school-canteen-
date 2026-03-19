@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rwanda School Canteen Digital Wallet</title>
+    <script>
+      // Suppress React DevTools warning before React loads
+      (function() {
+        const originalWarn = console.warn;
+        console.warn = function(...args) {
+          const message = args[0];
+          if (typeof message === 'string' && 
+              (message.includes('React DevTools') || 
+               message.includes('react-devtools'))) {
+            return;
+          }
+          originalWarn.apply(console, args);
+        };
+        
+        // Also suppress the specific warning message
+        if (window.__REACT_DEVTOOLS_GLOBAL_HOOK__) {
+          const originalHook = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+          // Override to prevent the warning
+        }
+      })();
+    </script>
+    <style>
+      body {
+        background-color: #F5F5F5 !important;
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
