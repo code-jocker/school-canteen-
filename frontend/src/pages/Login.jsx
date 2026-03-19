@@ -28,16 +28,18 @@ const Login = () => {
         return;
       }
       
-      // Use window.location for reliable redirect based on role
-      if (user.role === 'canteen') {
-        window.location.href = '/purchase';
-      } else if (user.role === 'dean-admin') {
-        window.location.href = '/dashboard';
-      } else if (user.role === 'superadmin') {
-        window.location.href = '/dashboard';
-      } else {
-        window.location.href = '/dashboard';
-      }
+      // Use navigate for redirect based on role - wait for state to update
+      setTimeout(() => {
+        if (user.role === 'canteen') {
+          navigate('/purchase', { replace: true });
+        } else if (user.role === 'dean-admin') {
+          navigate('/dashboard', { replace: true });
+        } else if (user.role === 'superadmin') {
+          navigate('/dashboard', { replace: true });
+        } else {
+          navigate('/dashboard', { replace: true });
+        }
+      }, 100);
     } catch (err) {
       console.error('Login error:', err);
       setError(err.response?.data?.message || err.message || 'Login failed. Please try again.');
@@ -81,6 +83,7 @@ const Login = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 className="input"
                 placeholder="Enter your email"
+                autoComplete="email"
                 required
               />
             </div>
@@ -95,6 +98,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 className="input"
                 placeholder="Enter your password"
+                autoComplete="current-password"
                 required
               />
             </div>
